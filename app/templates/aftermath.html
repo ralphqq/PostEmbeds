@@ -6,7 +6,9 @@
     <div class="col-md-6">
         <p>Your status is:</p>
         <p>{{ text }}</p>
-        {% if embed_html %}<div>{{ embed_html|safe }}</div>{% endif %}
-    </div id="preview-embed-after">
+        {% if embed_html %}
+        </div id="preview-embed-after">{{ embed_html|safe }}</div>
+        {% endif %}
+    
 </div>
 {% endblock %}
