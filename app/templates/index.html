@@ -21,7 +21,7 @@
     {{ super() }}
     <script>
         $(function() {
-            $('textarea#post').keyup(function() {
+            $('textarea#post').on('input', function() {
                 var content = $(this).val();
                 var url_regex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
                 var url = content.match(url_regex);
@@ -32,7 +32,11 @@
 
                     $.get('/preview_url?url=' + url[0], function(response) {
                         $('#preview-embed').html(response['html_embed']);
-                        $('#embed_tag').attr('value', response['html_embed']);
+                        $('#embed_tag').attr('value', 'embedded');
+                $('#preview_url').attr('value', response['url']);
+                $('#preview_title').attr('value', response['title']);
+                $('#preview_description').attr('value', response['description']);
+                $('#preview_image').attr('value', response['image']);
                     });
                 }
                 return false;

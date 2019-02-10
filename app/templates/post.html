@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+<h1>{{ title }}</h1>
+<div class="row">
+    <div class="col-md-6">
+        <p>Your status is:</p>
+        <hr>
+        <p>{{ text }}</p>
+        {% if embed_tag == 'embedded' %}
+        {% include 'embed_preview.html' %}
+        {% endif %}
+        <hr>
+        <a class="btn btn-primary" href="{{ url_for('index') }}" role="button">Create new post</a>
+        </div>
+</div>
+{% endblock %}

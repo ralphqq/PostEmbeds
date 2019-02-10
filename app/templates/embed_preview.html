@@ -1,14 +1,15 @@
 <div class="row">
     <div class="col-xs-4">
         <a href="{{ url }}" target="_blank">
-            <img src="{{ og.image }}" class="img-responsive">
+            <img src="{{ post_image }}" class="img-responsive">
         </a>
     </div>
     <div class="col-xs-8">
-        <p>
-            <a href="{{ url }}" target="_blank"><strong>{{ og.title }}</strong></a><br>
-            <i>{{ og.site_name }}</i>
+        <p id="post-title">
+            <a href="{{ url }}" target="_blank">
+                <strong>{{ post_title }}</strong>
+            </a>
         </p>
-        <p>{{ og.description }}</p>
+        <p>{% if post_description %}{{ post_description }}{% else %}No description available{% endif %}</p>
     </div>
 </div>

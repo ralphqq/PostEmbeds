@@ -2,3 +2,10 @@
     width: 100%;
 }
 
+#post-title {
+    font-size: 1.25em;
+}
+
+#post-description {
+    font-size: 0.95em;
+}
