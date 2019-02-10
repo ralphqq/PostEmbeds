@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+<div class="row">
+<h1>Oops, something bad happened</h1>
+    <div class="col-md-4">
+        <p>An internal error occurred during the last operation. We're looking into the problem right now.</p>
+        <a class="btn btn-primary" href="{{ url_for('index') }}" role="button">Get me out of here</a>
+    </div>
+</div>
+{% endblock %}
