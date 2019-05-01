@@ -20,21 +20,21 @@ def index():
 
 @app.route('/show_post', methods=['GET', 'POST'])
 def show_post():
-    if request.method == 'POST':
-        text = request.form.get('post')
-        embed_tag = request.form.get('embed_tag')
-        url = request.form.get('preview_url')
-        post_title = request.form.get('preview_title')
-        post_description = request.form.get('preview_description')
-        post_image = request.form.get('preview_image')
+    if request.method == 'GET':
+        return redirect(url_for('index'))
+
+    text = request.form.get('post')
+    embed_tag = request.form.get('embed_tag')
+    url = request.form.get('preview_url')
+    post_title = request.form.get('preview_title')
+    post_description = request.form.get('preview_description')
+    post_image = request.form.get('preview_image')
 
     return render_template('post.html',
                            title='Great post!', post_title=post_title,
                            post_description=post_description, url=url,
                            post_image=post_image, text=text,
                            embed_tag=embed_tag)
-
-    return redirect(url_for('index'))
 
 
 @app.route('/preview_url')
